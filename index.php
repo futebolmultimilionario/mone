@@ -1,6 +1,5 @@
 	<?php
-  $requisicaocod = file_get_contents("php://input");
-  $requisicao = json_decode($requisicaocod, TRUE);
+  $requisicao = file_get_contents("php://input");
   ob_start();
 	var_dump($requisicao);
 	$input = ob_get_contents();
