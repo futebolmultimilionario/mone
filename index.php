@@ -1,5 +1,5 @@
 	<?php
-  $requisicao = file_get_contents("php://input");
+  $requisicao = $_POST;
   ob_start();
 	var_dump($requisicao);
 	$input = ob_get_contents();
