@@ -129,7 +129,7 @@ $codVenda         = $dados['venda']['codigo']; // Código da transação
 
 $codPlano         = $dados['venda']['plano']; // código do plano do produto (da edição do produto aba planos)
 
-$codCupom         = $dados['venda']['cupom']; // código do cupom usado na venda
+//$codCupom         = $dados['venda']['cupom']; // código do cupom usado na venda
 
 $dataInicio       = strtotime($dados['venda']['dataInicio']); // Data que iniciou a compra. Formato: yyyy-mm-dd H:i:s
 $dataFinalizada   = strtotime($dados['venda']['dataFinalizada']); // Data em que foi confirmado o pagamento. Formato: yyyy-mm-dd H:i:s
@@ -149,11 +149,11 @@ $valorVenda       = $dados['venda']['valor']; //valor total pago ex: 1457.00
 $quantidade       = $dados['venda']['quantidade']; //quantidade de produtos comprados nessa venda
 $valorRecebido    = $dados['venda']['valorRecebido'] ; //valor total que você recebeu por essa venda ex: 1367.00
 $tipo_frete       = $dados['venda']['tipo_frete'] ; //Tipo do frete ( 4014 = SEDEX, 4510 = PAC, 999999 = Valor Fixo) Qualquer valor q for enviado diferente desses, refere-se ao código da Intelipost.
-$descr_tipo_frete = $dados['venda']['descr_tipo_frete'] ; //Descricao do frete (Ex: Correios SEDEX, Corretios PAC, Total Express)
-$frete            = $dados['venda']['frete'] ; // Valor pago pelo frete
+//$descr_tipo_frete = $dados['venda']['descr_tipo_frete'] ; //Descricao do frete (Ex: Correios SEDEX, Corretios PAC, Total Express)
+//$frete            = $dados['venda']['frete'] ; // Valor pago pelo frete
 
 $onebuyclick      = $dados['venda']['onebuyclick'] ; // se a essa venda foi feita com 1 click (Upsell)
-$venda_upsell     = $dados['venda']['venda_upsell'] ; // Caso essa venda tenha se originado de um upsell, nesse campo vai o cód da venda principal, que originou essa venda.
+//$venda_upsell     = $dados['venda']['venda_upsell'] ; // Caso essa venda tenha se originado de um upsell, nesse campo vai o cód da venda principal, que originou essa venda.
 
 $src              = $dados['venda']['src']; //Valor do SRC que foi enviado via parâmetro da URL de divulgação
 $utm_source       = $dados['venda']['utm_source']; //Valor do SRC que foi enviado via parâmetro da URL de divulgação
