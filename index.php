@@ -205,7 +205,22 @@ cadastraComprador($dados['comprador']);
   $buscavenda = pg_query($db_handle, $selecionarvenda);
 if(is_array(pg_fetch_assoc($buscavenda)) == false){
     $query = "INSERT INTO vendas (codigo, plano, datainicio, datafinalizada, meiopagamento, formapagamento, fimdagarantia, status, valor, quantidade, valorecebido, doccomprador, refafiliado, codigoassinatura, linkboleto, linhaboleto, urlrecuperacao, codigoproduto) VALUES ('$codVenda', '$codPlano', '$dataInicio', '$dataFinalizada', '$meioPagamento', '$formaPagamento', '$fimGarantia', '$statusVenda', '$valorVenda', '$quantidade', '$valorRecebido', '$cnpj_cpf', '$refAfiliado', '$codAssinatura', '$linkBoleto', '$linhaDigitavel', '$url_recuperacao', '$codigoProduto')";
-	$result = pg_query($db_handle, $query);				
+	$result = pg_query($db_handle, $query);
+    $APIurl = 'https://api.chat-api.com/instance242782/';
+    $token = 'um8exqhwvrx7f58q';
+	if($formaPagamento == 'Boleto'){
+		file_get_contents($APIurl."sendMessage?token=".$token."&chatId=55".ltrim($dados['comprador']['telefone'], '0')."@c.us&body=".urlencode("Olá ".strtok($dados['comprador']['nome'], ' ').", tudo bem? 😊
+
+Você assinou o curso da Duplo Green ✅✅
+        
+Para garantir a sua vaga, lembre de pagar seu boleto o quanto antes, e ai você poderá aproveitar todos os benefícios de ser uma membro Duplo Green, e lucrar conosco!
+        
+*Vou deixar o link do boleto aqui para ajudar você:*
+".$linkBoleto."
+        
+*E também o número do código de barras para você não ter trabalho:*
+".$linhaDigitavel));
+	}
 } else {
     $query = "UPDATE vendas SET codigo='$codVenda', plano='$codPlano', datainicio='$dataInicio', datafinalizada='$dataFinalizada', meiopagamento='$meioPagamento', formapagamento='$formaPagamento', fimdagarantia='$fimGarantia', status='$statusVenda', valor='$valorVenda', quantidade='$quantidade', valorecebido='$valorRecebido', doccomprador='$cnpj_cpf', refafiliado='$refAfiliado', codigoassinatura='$codAssinatura', linkboleto='$linkBoleto', linhaboleto='$linhaDigitavel', urlrecuperacao='$url_recuperacao' , codigoproduto='$codigoProduto' WHERE codigo='$codVenda'";
 	$result = pg_query($db_handle, $query);	
