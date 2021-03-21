@@ -148,7 +148,7 @@ $valorVenda       = $dados['venda']['valor']; //valor total pago ex: 1457.00
 
 $quantidade       = $dados['venda']['quantidade']; //quantidade de produtos comprados nessa venda
 $valorRecebido    = $dados['venda']['valorRecebido'] ; //valor total que você recebeu por essa venda ex: 1367.00
-$tipo_frete       = $dados['venda']['tipo_frete'] ; //Tipo do frete ( 4014 = SEDEX, 4510 = PAC, 999999 = Valor Fixo) Qualquer valor q for enviado diferente desses, refere-se ao código da Intelipost.
+//$tipo_frete       = $dados['venda']['tipo_frete'] ; //Tipo do frete ( 4014 = SEDEX, 4510 = PAC, 999999 = Valor Fixo) Qualquer valor q for enviado diferente desses, refere-se ao código da Intelipost.
 //$descr_tipo_frete = $dados['venda']['descr_tipo_frete'] ; //Descricao do frete (Ex: Correios SEDEX, Corretios PAC, Total Express)
 //$frete            = $dados['venda']['frete'] ; // Valor pago pelo frete
 
