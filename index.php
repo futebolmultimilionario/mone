@@ -220,6 +220,15 @@ Para garantir a sua vaga, lembre de pagar seu boleto o quanto antes, e ai você 
         
 *E também o número do código de barras para você não ter trabalho:*
 ".$linhaDigitavel));
+	}else if($formaPagamento == 'Cartão de crédito' && $statusVenda == 'Cancelada'){
+		file_get_contents($APIurl."sendMessage?token=".$token."&chatId=55".ltrim($dados['comprador']['telefone'], '0')."@c.us&body=".urlencode("Olá ".strtok($dados['comprador']['nome'], ' ').", tudo bem? 😊
+
+Vimos que você estava adquirindo o curso da Duplo Green. Tem alguma dúvida que podemos esclarecer?
+        
+Já somos quase 1000 membros lucrando uma média de 50% por mês! Garanta sua vaga enquanto é tempo.
+
+*Caso deseje, vou deixar o link para compra do curso de onde você parou:*
+".$url_recuperacao));
 	}
 } else {
     $query = "UPDATE vendas SET codigo='$codVenda', plano='$codPlano', datainicio='$dataInicio', datafinalizada='$dataFinalizada', meiopagamento='$meioPagamento', formapagamento='$formaPagamento', fimdagarantia='$fimGarantia', status='$statusVenda', valor='$valorVenda', quantidade='$quantidade', valorecebido='$valorRecebido', doccomprador='$cnpj_cpf', refafiliado='$refAfiliado', codigoassinatura='$codAssinatura', linkboleto='$linkBoleto', linhaboleto='$linhaDigitavel', urlrecuperacao='$url_recuperacao' , codigoproduto='$codigoProduto' WHERE codigo='$codVenda'";
