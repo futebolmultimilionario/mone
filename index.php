@@ -206,8 +206,8 @@ cadastraComprador($dados['comprador']);
 if(is_array(pg_fetch_assoc($buscavenda)) == false){
     $query = "INSERT INTO vendas (codigo, plano, datainicio, datafinalizada, meiopagamento, formapagamento, fimdagarantia, status, valor, quantidade, valorecebido, doccomprador, refafiliado, codigoassinatura, linkboleto, linhaboleto, urlrecuperacao, codigoproduto) VALUES ('$codVenda', '$codPlano', '$dataInicio', '$dataFinalizada', '$meioPagamento', '$formaPagamento', '$fimGarantia', '$statusVenda', '$valorVenda', '$quantidade', '$valorRecebido', '$cnpj_cpf', '$refAfiliado', '$codAssinatura', '$linkBoleto', '$linhaDigitavel', '$url_recuperacao', '$codigoProduto')";
 	$result = pg_query($db_handle, $query);
-    $APIurl = 'https://api.chat-api.com/instance244577/';
-    $token = '8cj7lw7qeuo0lt0t';
+    $APIurl = 'https://api.chat-api.com/instance245925/';
+    $token = 'vce56j9rfgjk3hbu';
 	if($formaPagamento == 'Boleto'){
 		file_get_contents($APIurl."sendMessage?token=".$token."&chatId=55".ltrim($dados['comprador']['telefone'], '0')."@c.us&body=".urlencode("Olá ".strtok($dados['comprador']['nome'], ' ').", tudo bem? 😊
 
